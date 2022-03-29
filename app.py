@@ -146,7 +146,6 @@ def calculate(_Uce, _Ic): # V, A
             _Uce = U # V k CE
             break
     print("CE:",_CE, "/", _Uce)
-    print("-------------------------")
 
 
     # Vypočítaj C1
@@ -171,7 +170,9 @@ def calculate(_Uce, _Ic): # V, A
 
     # Výpočet C2
     _h22E = _h22e * 0.98 * 3
-    _Rvyst = (1/_Rc) + (1/((_Re + 1) / _h22E))
+    _Re_h22E = (_Re + 1) / _h22E
+    print(f"({_Rc} + {1}) / {_h22E} =", _Re_h22E)
+    _Rvyst = (1/_Rc) 
     _Rvyst = 1/_Rvyst
 
     _C2 = 1 / (2 * math.pi) * (25 *(_Rv + _Rvyst))
@@ -184,6 +185,7 @@ def calculate(_Uce, _Ic): # V, A
     if _U > 6:
         _Uc2 = 12
     print("C2:",_C2, "/", _Uc2)
+    print("-------------------------")
 
 Uce = 4
 Ic = 0.005
